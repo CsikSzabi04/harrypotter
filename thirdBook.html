@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+    <title>Harry Potter Akasztófa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(20, 20, 20, 0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(87, 87, 87, 0.5);
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background-color: rgba(0, 0, 0, 1);
+        }
+
+        body {
+            background-image: url('https://motionbgs.com/media/4288/castle-of-hogwarts.jpg');
+            /* Harry Potter background */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Garamond', serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: xx-large;
+            font-weight: bold;
+            color: #ffcc00;
+            /* Golden color */
+            text-shadow: 3px 3px 5px #000;
+        }
+
+        p {
+            text-align: center;
+            font-size: 20px;
+            color: #ffcc00;
+            /* Golden color */
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        #h {
+            width: 20%;
+            height: 20%;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Semi-transparent black */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            /* Golden glow */
+            max-width: 500px;
+            text-align: center;
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        .emberke {
+            display: none;
+        }
+
+
+        .emberke-container {
+            width: 200px;
+            height: 250px;
+            border: 2px solid #ffcc00;
+            margin: 5px;
+            stroke-width: 4px;
+            stroke-linecap: round;
+            fill: transparent;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        /* Additional styles for the lines and circle */
+        line,
+        .emberke {
+            stroke-width: 4px;
+        }
+
+        .szam1 {
+            padding: 5px 200px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+        .szam1 span {
+            width: 35px;
+            height: 35px;
+            border: 2px solid #ffcc00;
+            margin: 5px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffcc00;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .szam1 span:hover {
+            background-color: #8b5e3c;
+            /* Magical Hover effect */
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+        }
+
+        .szam2 {
+            text-align: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .szam2 span {
+            margin: 2px;
+            padding: 5px;
+            font-size: 2rem;
+            color: #ffcc00;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .status {
+            text-align: center;
+            font-size: 18px;
+            color: #ffcc00;
+            margin-top: 10px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .score {
+            text-align: center;
+            font-size: 18px;
+            color: #ffcc00;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        @media (max-width: 770px) {
+            .szam1 {
+                padding: 5px 30px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+
+            }
+
+            .szam2 {
+                text-align: center;
+                justify-content: center;
+                margin-top: 10px;
+                padding: 5px 30px;
+            }
+        }
+
+        @media (max-width: 460px) {
+
+            .container {
+                background-color: rgba(0, 0, 0, 0.6);
+                /* Semi-transparent black */
+                padding: 0px;
+                border-radius: 15px;
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+                /* Golden glow */
+                max-width: 500px;
+                text-align: center;
+                width: 50%;
+                margin: 20px auto;
+            }
+
+            .szam1 {
+                padding: 5px 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+            }
+
+            .szam2 {
+                text-align: center;
+                justify-content: center;
+                padding: 5px 10px;
+            }
+        }
+
+        .container a {
+            border-color: #e0b817 1px solid;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            border-radius: 15px;
+            text-align: center;
+            margin: 10px auto;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .c {
+            margin-top: 5%;
+        }
+
+        .container a:hover {
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(211, 204, 166, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Harry Potter és az azkabani fogoly</h1>
+        <img id="h" src="" alt="Harry Potter" class="mx-auto mb-5">
+        <p id="question"></p>
+        <svg class="emberke-container">
+            <line x1="20" x2="100" y1="230" Y2="230" />
+            <line x1="60" x2="60" y1="20" Y2="230" />
+            <line x1="60" x2="150" y1="20" Y2="20" />
+            <line x1="150" x2="150" y1="20" Y2="55" />
+            <circle class="emberke" id="1" cx="150" cy="75" r="18" />
+            <line class="emberke" id="2" x1="150" x2="150" y1="95" Y2="160" />
+            <line class="emberke" id="3" x1="150" x2="120" y1="125" Y2="100" />
+            <line class="emberke" id="4" x1="150" x2="180" y1="125" Y2="100" />
+            <line class="emberke" id="5" x1="150" x2="175" y1="160" Y2="190" />
+            <line class="emberke" id="6" x1="150" x2="125" y1="160" Y2="190" />
+        </svg>
+        <div class="szam1" onclick="katt(event)"></div>
+        <div class="szam2"></div>
+        <div class="status"></div>
+        <div class="score">
+            <p>Élet: <span id="health">6</span></p>
+            <p><span id="buttonD" style="display: none; cursor: pointer; color: red;">Újrakezdés</span></p>
+        </div>
+        <p class="c"> <a href="index.html">Vissza A Kezdőoldalra</a></p>
+    </div>
+    <script>
+        const questions = [
+            { question: "Ki a Harry Potter harmadik évének új tanára?", answer: "RemusLupin" },
+            { question: "Mi a neve a híres varázslónak, aki elmenekült Azkabanból?", answer: "SiriusBlack" },
+            { question: "Mi a neve a Harry Potter három legjobb barátjának?", answer: "HarryRonésHermione" },
+            { question: "Mi a neve annak a varázslatnak, amelyet Lupin tanít Harrynek?", answer: "ExpectoPatronum" },
+            { question: "Mi a neve a Harry által látott varázslatos lénynek, amely a félelmeit formálja?", answer: "Boggart" },
+            { question: "Mi a neve a titokzatos kutyának, amely Sirius Black szelleme?", answer: "AGrim" },
+            { question: "Melyik évben tanít Remus Lupin a Roxfortban?", answer: "Aharmadikévben" },
+            { question: "Ki segít Harrynek megmenteni Sirius Black-et az azkabani fogságból?", answer: "HermioneGranger" },
+            { question: "Mi a neve Harry Potter védelmezőjének?", answer: "Patronus" },
+            { question: "Milyen lények fenyegetik Harryt és a barátait a harmadik könyvben?", answer: "Dementorok" },
+            { question: "Ki az a varázsló, aki valójában Sirius Black keresztapja?", answer: "JamesPotter" },
+            { question: "Mi a neve annak a varázslónak, aki elárulta a Potter család hollétét?", answer: "PeterPettigrew" },
+            { question: "Mi a neve a képeslap formájú időutazó varázstárgynak?", answer: "Időnyerő" },
+            { question: "Ki a házvezetője a Griffendél háznak?", answer: "MinervaMcGalagony" },
+            { question: "Mi történik Harryvel, amikor találkozik a dementorokkal?", answer: "Fél" },
+            { question: "Mi a neve annak a bűbájos állatnak, amely segít Hermione-nak?", answer: "Crookshanks" },
+            { question: "Milyen varázslótanár tanítja a híres Védelem a sötét művészetek tantárgyat?", answer: "RemusLupin" },
+            { question: "Mi a neve annak a boszorkányos kutyának, amelyet Sirius Black megidézett?", answer: "Grim" },
+            { question: "Melyik hónapban találkozik Harry a hírhedt kutyával?", answer: "Novemberben" },
+            { question: "Mi a neve annak a helynek, ahol Sirius Black menekült a dementorok elől?", answer: "ShriekingShack" },
+            { question: "Mi történik, amikor Harry és Hermione visszautaznak az időben?", answer: "MegmentenekállatotésSiriust" },
+            { question: "Ki volt az első, aki elárulta Harrynek, hogy Sirius Black valójában nem gonosz?", answer: "RemusLupin" },
+            { question: "Ki volt Peter Pettigrew eredeti neve?", answer: "Wormtail" },
+            { question: "Mi volt a végső oka annak, hogy Sirius Black elmenekült Azkabanból?", answer: "TudtahogyPeterPettigrewéletbenvan" },
+            { question: "Mi történt, amikor Harry először találkozott a dementorokkal?", answer: "Elvesztetteazeszméletét" },
+            { question: "Mi a neve Harry első bűbájának, amit megtanult?", answer: "ExpectoPatronum" },
+            { question: "Ki a házvezetője a Slytherin háznak?", answer: "SeverusSnape" },
+            { question: "Mi történik Harry és a barátai között, amikor találkoznak a Shrieking Shack-ban?", answer: "IgazságSiriusról" },
+            { question: "Mi történik, amikor Harry és Hermione visszamennek az időben?", answer: "SiriustésHagridotmegszabadítják" },
+            { question: "Mi a neve Harry nagybátyjának és nagynénjének?", answer: "VernonésPetuniaDursley" },
+            { question: "Miért nem bíznak Harryben a nagybátyja és nagynénje?", answer: "félnektőle" },
+            { question: "Mi történt, amikor Harry és Sirius elrejtőztek a tanárok elől?", answer: "Adementorokmegtámadtákőket" },
+            { question: "Ki mondja el Harrynek, hogy Sirius Black az édesapja keresztapja?", answer: "RonWeasley" },
+            { question: "Mi történik, amikor Hermione találkozik a varázslatos állatokat?", answer: "Segítmegmenteniőket" },
+            { question: "Mi a neve annak a varázslónak, aki a harmadik könyvben szereplő börtönőr?", answer: "Dementor" },
+            { question: "Ki a híres tanár, aki a varázslatos lények kezelését tanítja?", answer: "Hagrid" },
+            { question: "Mi a neve annak a varázslatnak, amely segít elűzni a dementorokat?", answer: "ExpectoPatronum" },
+            { question: "Mi a neve a könyvben szereplő varázslatos állatnak, amely segít Hermione-nak?", answer: "Crookshanks" },
+            { question: "Mi a neve a varázsló, aki Harry keresztapja?", answer: "SiriusBlack" },
+            { question: "Mi történik, amikor Harry felfedezi, hogy Sirius Black valójában nem a gyilkos?", answer: "RájönhogyPettigrewazigazíáruló" },
+            { question: "Mi történik, amikor Hermione és Harry visszautaznak az időben?", answer: "MegmentikSiriust" },
+            { question: "Milyen szörnyekkel harcol Harry az iskolában?", answer: "Adementorokkalésaboggartokkal" },
+            { question: "Mi történt a Tűzpróba előtt?", answer: "Harryegysárkánnyalharcolt" }
+
+        ];
+
+        const images = [
+            'https://motionbgs.com/media/4840/hogwarts-harry-potter.jpg',
+            'https://rukminim2.flixcart.com/image/850/1000/xif0q/poster/l/q/f/medium-harry-potter-hd-wallpaper-on-fine-art-paper-13x19-original-imah368fbudammbu.jpeg?q=20&crop=false',
+            'https://e0.pxfuel.com/wallpapers/431/472/desktop-wallpaper-gadget-harry-potter-7-harry-potter-landscape.jpg',
+            'https://wallpapers.com/images/hd/hermione-granger-harry-potter-desktop-q17u8mb96t4jwim6.jpg',
+            'https://resize.elle.fr/original/var/plain_site/storage/images/mode/la-mode-des-stars/la-panoplie-mode-d-hermione-granger-dans-harry-potter/95897832-1-fre-FR/La-panoplie-mode-d-Hermione-Granger-dans-Harry-Potter.jpg',
+            'https://c4.wallpaperflare.com/wallpaper/95/92/857/harry-potter-hermione-granger-emma-watson-hd-wallpaper-preview.jpg',
+            'https://wallpapers.com/images/hd/the-hogwarts-houses-1165-x-900-wallpaper-kgxqoojmhys33ll0.jpg',
+        ];
+
+        const abc = ['A', 'Á', 'B', 'C', 'D', 'E', 'É', 'F', 'G', 'H', 'I', 'Í', 'J', 'K', 'L', 'M', 'N', 'O', 'Ó', 'Ö', 'Ő', 'P', 'Q', 'R', 'S', 'T', 'U', 'Ú', 'Ü', 'Ű', 'V', 'W', 'X', 'Y', 'Z'];
+
+        abc.forEach(char => document.querySelector('.szam1').innerHTML += `<span>${char}</span>`);
+
+        function randomizeQuestion() {
+            const randomIndex = Math.floor(Math.random() * questions.length);
+            const { question, answer } = questions[randomIndex];
+            const answerArray = answer.toUpperCase().split('');
+            let guessedLetters = Array(answerArray.length).fill('_');
+            let mistakes = 0;
+            let health = 6;
+
+            // Randomize and show a question
+            document.getElementById('question').innerText = question;
+
+            // Randomize image
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+            document.getElementById('h').src = randomImage;
+
+            function updateGame() {
+                // Replace characters like ',', ' ', '!' with margin-left
+                let updatedAnswer = answer.replace(/[, !]/g, '<span style="margin-left: 10px;"></span>');
+                document.querySelector('.szam2').innerHTML = guessedLetters.map(char => `<span>${char}</span>`).join('');
+                document.getElementById('health').innerText = health;
+            }
+
+            updateGame();
+
+            function katt(e) {
+                if (e.target.tagName != 'SPAN') return;
+                const selectedLetter = e.target.innerText;
+                let correctGuess = false;
+
+                applyRandomStrokeColor();
+
+                for (let i = 0; i < answerArray.length; i++) {
+                    if (answerArray[i] === selectedLetter) {
+                        guessedLetters[i] = selectedLetter;
+                        correctGuess = true;
+                    }
+                }
+
+                if (!correctGuess) {
+                    mistakes++;
+                    health--;
+                    document.getElementById(mistakes).style.display = 'block';
+                }
+
+                if (guessedLetters.indexOf('_') === -1) {
+                    document.querySelector(".status").innerHTML = `<p>Gratulálok, helyes válasz! A válasz: ${answer}</p>`;
+                    updateGame();
+                    setTimeout(function () {
+                        location.reload();
+                    }, 4000);
+                    return;
+                }
+
+                if (health === 0) {
+                    const characters = ['Harry', 'Hermione', 'Ron', 'Voldemort', 'Dumbledore'];
+                    const randomCharacter = characters[Math.floor(Math.random() * characters.length)];
+                    document.querySelector(".status").innerHTML = `<p> Elvesztetted a játékot. <br> Meghalt: ${randomCharacter}</p> 😭😭 <br> A válasz: ${answer}`;
+                    document.getElementById("buttonD").style.display = 'inline'; // Show the "Újrakezdés" button
+                }
+
+                updateGame();
+            }
+
+            return katt;
+        }
+
+        const clickHandler = randomizeQuestion();
+        document.querySelector('.szam1').addEventListener('click', clickHandler);
+
+        document.getElementById("buttonD").addEventListener("click", function () {
+            location.reload(); // Refresh the page to restart the game
+        });
+
+        // Function to generate a random color from the given two colors
+        function getRandomColor() {
+            const colors = [
+                'rgb(192, 77, 10)',  // First color
+                'rgb(211, 226, 0)'   // Second color
+            ];
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            return colors[randomIndex];
+        }
+
+        // Apply the random color to the stroke of all relevant elements
+        function applyRandomStrokeColor() {
+            const randomColor = getRandomColor();
+
+            // Select all lines and circles within the SVG
+            const linesAndCircles = document.querySelectorAll('line, .emberke');
+
+            // Apply the random stroke color to all of them
+            linesAndCircles.forEach(element => {
+                element.style.stroke = randomColor;
+            });
+        }
+
+        // Apply the color when the page loads
+        window.onload = applyRandomStrokeColor;
+    </script>
+
+</body>
+
+</html>
